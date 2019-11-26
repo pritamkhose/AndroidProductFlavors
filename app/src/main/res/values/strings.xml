@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android Product Flavors</string>
+    <string name="action_exit">Exit</string>
+</resources>
