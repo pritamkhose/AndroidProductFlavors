@@ -36,10 +36,10 @@ android {
 ////            keyPassword keystoreProperties['keyPassword']
 ////            storePassword keystoreProperties['storePassword']
                 if (System.getenv()["CI"]) { // CI=true is exported by Nevercode
-                    storeFile file(System.getenv()["NC_KEYSTORE_PATH"])
-                    storePassword System.getenv()["NC_KEYSTORE_PASSWORD"]
-                    keyAlias System.getenv()["NC_KEY_ALIAS"]
-                    keyPassword System.getenv()["NC_KEY_PASSWORD"]
+//                   storeFile file(System.getenv()["NC_KEYSTORE_PATH"])
+//                   storePassword System.getenv()["NC_KEYSTORE_PASSWORD"]
+//                   keyAlias System.getenv()["NC_KEY_ALIAS"]
+//                   keyPassword System.getenv()["NC_KEY_PASSWORD"]
                 } else {
                     storeFile file('productflavors_prod.jks')
                     storePassword "productflavors_prod_pass"
