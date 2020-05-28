@@ -32,13 +32,20 @@ android {
 //            }
 //        }
         release {
-//            keyAlias keystoreProperties['keyAlias']
-//            keyPassword keystoreProperties['keyPassword']
-//            storePassword keystoreProperties['storePassword']
-            keyAlias 'productflavors_prod'
-            storePassword 'productflavors_prod_pass'
-            keyPassword 'productflavors_prod_pass'
-            storeFile file('productflavors_prod.jks')
+////            keyAlias keystoreProperties['keyAlias']
+////            keyPassword keystoreProperties['keyPassword']
+////            storePassword keystoreProperties['storePassword']
+                if (System.getenv()["CI"]) { // CI=true is exported by Nevercode
+                    storeFile file(System.getenv()["NC_KEYSTORE_PATH"])
+                    storePassword System.getenv()["NC_KEYSTORE_PASSWORD"]
+                    keyAlias System.getenv()["NC_KEY_ALIAS"]
+                    keyPassword System.getenv()["NC_KEY_PASSWORD"]
+                } else {
+                    storeFile file('productflavors_prod.jks')
+                    storePassword "productflavors_prod_pass"
+                    keyAlias "productflavors_prod"
+                    keyPassword "productflavors_prod_pass"
+                }
         }
         stage {
             keyAlias 'productflavors_test'
